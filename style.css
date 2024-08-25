@@ -1,0 +1,244 @@
+:root {
+  --width: 1000px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  max-width: var(--width);
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+header > img {
+  max-width: 8rem;
+  width: 100%;
+}
+
+header nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+header nav a,
+footer a {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+header nav a.active {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+footer section article {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+header nav img {
+  margin-left: 1rem;
+}
+
+main {
+  max-width: var(--width);
+  margin: 0 auto;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+#recipesContainer {
+  width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+main article {
+  height: 33rem;
+  width: 100%;
+  margin: 1rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+}
+
+main article figure {
+  margin: 0;
+  padding: 2rem 1rem 0 1rem;
+  background: rgb(244, 182, 10);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+main article figure img {
+  width: 80%;
+}
+
+h2.recipeTitle {
+  margin: 0;
+  padding: 0.5rem 1rem 0rem 1rem;
+}
+h3.cookingTime {
+  margin: 0;
+  padding: 0rem 1rem 1rem 1rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+main article p.ingredients {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  line-height: 140%;
+}
+
+main article button {
+  appearance: none;
+  border: none;
+  background: black;
+  color: white;
+  margin: auto auto 2rem auto;
+  padding: 0.5rem;
+  width: 3rem;
+  border-radius: 0.25rem;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.03);
+  height: 16rem;
+  display: flex;
+  justify-content: center;
+}
+
+footer > section {
+  max-width: var(--width);
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+}
+
+footer > section article {
+  flex: 1;
+  margin: 0 2rem;
+}
+
+footer > section article a {
+  margin: 0.25rem 0;
+}
+
+.recipeCard {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+#addBtn {
+  background-color: #509e2f;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  font-size: 14px;
+  border: none;
+}
+
+input {
+  padding: 8px;
+}
+
+#addBtn:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+/* gabriel css */
+#ingredients {
+  width: 210px;
+  height: 300px;
+  resize: none;
+}
+
+/*Helenas css*/
+.betyg {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.starcontainer {
+  display: flex;
+  align-items: center;
+}
+
+#imgBetyg {
+  width: 14px;
+  height: 14px;
+  flex-direction: row-reverse;
+}
+.div1 {
+  display: flex;
+  max-width: 100%;
+  margin-left: 8px;
+}
+.div2 {
+  display: flex;
+  justify-content: end;
+  margin-right: 8px;
+}
+
+.div3 {
+  display: none;
+  justify-content: end;
+  margin-right: 8px;
+}
+
+.imgstars {
+  width: 14px;
+  height: 14px;
+}
+#counter {
+  font-size: 18px;
+  color: #333;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.betygButton {
+  appearance: none;
+  border: none;
+  background: none;
+  width: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.imgstarempty {
+  height: 20px;
+  width: auto;
+}
+.imgstarblack {
+  height: 20px;
+  width: auto;
+}
