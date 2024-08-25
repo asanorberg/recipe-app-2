@@ -68,6 +68,7 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  height: auto;
 }
 
 main article {
@@ -115,7 +116,7 @@ main article p.ingredients {
 main article button {
   appearance: none;
   border: none;
-  background: black;
+  background: #509e2f;
   color: white;
   margin: auto auto 2rem auto;
   padding: 0.5rem;
@@ -147,15 +148,19 @@ footer > section article a {
 }
 
 .recipeCard {
-  width: 300px;
-  height: 500px;
+  width: 100%;
+  max-width: 300px;
+  height: auto; /* Helena - detta gör höjden flexibel */
   display: flex;
   flex-direction: column;
+  background: white;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+  margin: 1rem;
 }
 
 #addBtn {
   background-color: #509e2f;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 30px 10px 30px;
   color: white;
   font-size: 14px;
   border: none;
@@ -169,6 +174,34 @@ input {
   opacity: 80%;
   cursor: pointer;
 }
+
+/*Helena*/
+.recipeCard button:hover {
+  opacity: 0.8;
+}
+
+.recipeCard betygButton {
+  margin-left: 10px;
+  display: flex;
+  justify-content: baseline;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+.editBtn,
+.deleteBtn {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 7px;
+  background-color: #509e2f;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.25rem;
+} /*Helena*/
 
 /* gabriel css */
 #ingredients {
