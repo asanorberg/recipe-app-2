@@ -1,10 +1,10 @@
 // <------ Åsa ------>
 
-let recipesContainer = document.querySelector("#recipesContainer");
-let recipeTitle = document.querySelector("#title");
-let cookingTime = document.querySelector("#time");
-let ingredients = document.querySelector("#ingredients");
-let recipeForm = document.querySelector("#recipeForm");
+const recipesContainer = document.querySelector("#recipesContainer");
+const recipeTitle = document.querySelector("#title");
+const cookingTime = document.querySelector("#time");
+const ingredients = document.querySelector("#ingredients");
+const recipeForm = document.querySelector("#recipeForm");
 const imageFile = document.querySelector("#image");
 
 recipeForm.addEventListener("submit", function (e) {
@@ -49,7 +49,7 @@ recipeForm.addEventListener("submit", function (e) {
 
     `;
 
-    let recipeCard = document.createElement("article");
+    const recipeCard = document.createElement("article");
     recipeCard.classList.add("recipeCard");
     recipeCard.innerHTML = recipeContent;
     recipesContainer.appendChild(recipeCard);
@@ -95,10 +95,10 @@ recipeForm.addEventListener("submit", function (e) {
       });
 
     function enterEditMode(recipeCard) {
-      let currentTitle = recipeCard.querySelector(".recipeTitle").textContent;
-      let currentCookingTime =
+      const currentTitle = recipeCard.querySelector(".recipeTitle").textContent;
+      const currentCookingTime =
         recipeCard.querySelector(".cookingTime").textContent;
-      let currentIngredients =
+      const currentIngredients =
         recipeCard.querySelector(".ingredients").textContent;
 
       recipeCard.innerHTML = `
@@ -119,10 +119,10 @@ recipeForm.addEventListener("submit", function (e) {
     }
 
     function saveRecipe(recipeCard) {
-      let updatedTitle = recipeCard.querySelector(".editRecipeTitle").value;
-      let updatedCookingTime =
+      const updatedTitle = recipeCard.querySelector(".editRecipeTitle").value;
+      const updatedCookingTime =
         recipeCard.querySelector(".editCookingTime").value;
-      let updatedIngredients =
+      const updatedIngredients =
         recipeCard.querySelector(".editIngredients").value;
 
       recipeCard.innerHTML = `
