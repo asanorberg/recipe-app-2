@@ -22,7 +22,7 @@ recipeForm.addEventListener("submit", function (e) {
 
     const recipeContent = `
       <figure>
-        <img src="${imgSource}" alt="image of dish" />
+        <img src="${imgSource}" alt="image of dish" class="recipeImage"/>
       </figure>
       <h2 class="recipeTitle">${recipeTitle.value}</h2>
       <h3 class="cookingTime">${cookingTime.value}</h3>
@@ -43,10 +43,9 @@ recipeForm.addEventListener("submit", function (e) {
         </div>
       </div>
       <div class="buttonDiv">
-      <button id="editBtn">Edit</button>
-      <button id="deleteBtn">Delete</button>
+        <button id="editBtn">Edit</button>
+        <button id="deleteBtn">Delete</button>
       </div>
-
     `;
 
     const recipeCard = document.createElement("article");
@@ -100,25 +99,26 @@ recipeForm.addEventListener("submit", function (e) {
         recipeCard.querySelector(".cookingTime").textContent;
       const currentIngredients =
         recipeCard.querySelector(".ingredients").textContent;
+      const currentImageSrc = recipeCard.querySelector(".recipeImage").src;
 
       recipeCard.innerHTML = `
-      <label>Title:</label><br />
-      <input class="editRecipeTitle" type="text" value="${currentTitle}" /><br />
-      <label>Time:</label><br />
-      <input class="editCookingTime" type="text" value="${currentCookingTime}" /><br />
-      <label>Ingredients:</label><br />
-      <textarea class="editIngredients" rows="4" cols="50">${currentIngredients}</textarea><br />
-      <button class="saveBtn">Save</button>
-    `;
+        <label>Title:</label><br />
+        <input class="editRecipeTitle" type="text" value="${currentTitle}" /><br />
+        <label>Time:</label><br />
+        <input class="editCookingTime" type="text" value="${currentCookingTime}" /><br />
+        <label>Ingredients:</label><br />
+        <textarea class="editIngredients" rows="4" cols="50">${currentIngredients}</textarea><br />
+        <button class="saveBtn">Save</button>
+      `;
 
       recipeCard
         .querySelector(".saveBtn")
         .addEventListener("click", function () {
-          saveRecipe(recipeCard);
+          saveRecipe(recipeCard, currentImageSrc);
         });
     }
 
-    function saveRecipe(recipeCard) {
+    function saveRecipe(recipeCard, imgSource) {
       const updatedTitle = recipeCard.querySelector(".editRecipeTitle").value;
       const updatedCookingTime =
         recipeCard.querySelector(".editCookingTime").value;
@@ -126,33 +126,32 @@ recipeForm.addEventListener("submit", function (e) {
         recipeCard.querySelector(".editIngredients").value;
 
       recipeCard.innerHTML = `
-      <figure>
-        <img src="img/Recept1.png" alt="image of dish" />
-      </figure>
-      <h2 class="recipeTitle">${updatedTitle}</h2>
-      <h3 class="cookingTime">${updatedCookingTime}</h3>
-      <p class="ingredients">${updatedIngredients}</p>
-      <div class="betyg">
-        <div class="div1">
-          <button class="betygButton">
-            <img id="imgBetyg" src="./img/8530677_thumbs_up_icon.png" alt="betyg" />
-          </button>
-          <span id="counter">${clickCount}</span>
+        <figure>
+          <img src="${imgSource}" alt="image of dish" class="recipeImage"/>
+        </figure>
+        <h2 class="recipeTitle">${updatedTitle}</h2>
+        <h3 class="cookingTime">${updatedCookingTime}</h3>
+        <p class="ingredients">${updatedIngredients}</p>
+        <div class="betyg">
+          <div class="div1">
+            <button class="betygButton">
+              <img id="imgBetyg" src="./img/8530677_thumbs_up_icon.png" alt="betyg" />
+            </button>
+            <span id="counter">${clickCount}</span>
+          </div>
+          <div class="div2">
+            ${Array.from({ length: 5 }, (_, i) =>
+              i < filledStar
+                ? `<img class="imgstarempty" src="./img/starblack.png" alt="betyg" />`
+                : `<img class="imgstarempty" src="./img/starempty.png" alt="betyg" />`
+            ).join("")}
+          </div>
         </div>
-        <div class="div2">
-          ${Array.from({ length: 5 }, (_, i) =>
-            i < filledStar
-              ? `<img class="imgstarempty" src="./img/starblack.png" alt="betyg" />`
-              : `<img class="imgstarempty" src="./img/starempty.png" alt="betyg" />`
-          ).join("")}
+        <div class="buttonDiv">
+          <button id="editBtn">Edit</button>
+          <button id="deleteBtn">Delete</button>
         </div>
-      </div>
-      </div>
-      <div class="buttonDiv">
-      <button id="editBtn">Edit</button>
-      <button id="deleteBtn">Delete</button>
-      </div>
-    `;
+      `;
 
       // Återställ event listeners och uppdateringslogik
       updateStarsAndCounter();
